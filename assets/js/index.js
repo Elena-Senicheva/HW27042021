@@ -12,13 +12,15 @@ function submitHandler(event) {
   const {
     target,
     target: {
-      elements: { email },
+      elements: { email: {value:emailValue }},
     },
   } = event;
   //console.dir(email.value);
-  if (email.value) {
-    arr.push(email.value);
-    list.append(creatListItems(email.value));
+
+  const value = emailValue.trim();
+  if (value) {
+    arr.push(value);
+    list.append(creatListItems(value));
     target.reset();
   }
 }
